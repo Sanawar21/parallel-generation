@@ -2,7 +2,7 @@ import requests
 import os
 import string
 import random
-from utils import paths
+from .utils import paths
 from dotenv import load_dotenv
 
 load_dotenv()
