@@ -1,5 +1,6 @@
 from src.utils import status, start_vps, close_vps, restore_dirs, paths
 from src import audio, video, captions, zoom, b_rolls, content
+
 from moviepy.editor import VideoFileClip
 import os
 
@@ -20,8 +21,10 @@ if __name__ == "__main__":
     audio.generate(voice)
     captions.generate_srt()
     status.set(status.generating_lipsync)
+
     video.generate_video()
     status.set(status.enhancing_video)
+    # TODO: use client
     video.enhance_video()
     # status.set(status.zooming_video)
     # zoomed = zoom.zoom_video_at_intervals()
