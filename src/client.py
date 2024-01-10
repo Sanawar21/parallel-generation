@@ -19,7 +19,7 @@ def __generate_session_id():
 def upload_files():
     file_paths = (paths.input_video, paths.audio)
     session_id = __generate_session_id()
-    url = f"http://localhost:5000/upload/{session_id}"
+    url = f"{SERVER_URL}/upload/{session_id}"
 
     files = [('file', (open(file_path, 'rb')))
              for file_path in file_paths]
@@ -27,3 +27,4 @@ def upload_files():
     response = requests.post(url, files=files)
 
     print(response.json())
+    return session_id

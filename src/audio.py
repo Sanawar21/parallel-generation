@@ -62,6 +62,7 @@ def generate(voice_name):
     try:
         response = requests.post(
             endpoint, headers=headers,  json=data)
+        # print(response.json())
         with open(paths.audio, "wb") as file:
             file.write(response.content)
     except:
